@@ -6,12 +6,11 @@ authMethod: "bearer"
 
 ---
 
-## Request
+## Request 2.0
 
 <ParamField body="apiId" type="string" required>
 Choose an `API` where this key should be created.
 </ParamField>
-
 
 <ParamField body="prefix" type="string" >
 To make it easier for your users to understand which product an api key belongs to, you can add prefix them.
@@ -26,7 +25,6 @@ The underscore is automatically added if you are defining a prefix, for example:
 To make it easier to identify a particular key, you can provide a name.
 </ParamField>
 
-
 <ParamField body="byteLength" type="int" default={16} >
 The byte length used to generate your key determines its entropy as well as its length.
 Higher is better, but keys become longer and more annoying to handle.
@@ -34,8 +32,7 @@ Higher is better, but keys become longer and more annoying to handle.
 The default is `16 bytes`, or 2<sup>128</sup> possible combinations
  </ParamField>
 
-
- <ParamField body="ownerId" type="string" >
+<ParamField body="ownerId" type="string" >
   Your user's Id. This will provide a link between Unkey and your customer record.
 
   When validating a key, we will return this back to you, so you can clearly identify your user from their api key.
@@ -54,6 +51,7 @@ Example:
 ```
 
 </ParamField>
+
 <ParamField body="expires" type="int" >
   You can auto expire keys by providing a unix timestamp in milliseconds.
 
@@ -62,8 +60,7 @@ Example:
 
 </ParamField>
 
-
- <ParamField body="remaining" type="int" >
+<ParamField body="remaining" type="int" >
   Optionally limit the number of times a key can be used. This is different from time-based expiration using `expires`.
 
 Example:
