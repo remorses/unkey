@@ -19,10 +19,10 @@ The key you want to verify.
   Whether or not this key is valid and has passed the ratelimit.
   If `false` you should not grant access to whatever the user is requesting
 </ResponseField>
+
 <ResponseField name="ownerId" type="string">
   If you have set an `ownerId` on this key it is returned here. You can use this to clearly authenticate a user in your system.
 </ResponseField>
-
 
 <ResponseField name="meta" type="object" >
 This is the `meta` data you have set when creating the key.
@@ -36,7 +36,6 @@ Example:
 ```
 
 </ResponseField>
-
 
 <ResponseField name="ratelimit" type="Object">
   The current ratelimit state.
@@ -64,8 +63,7 @@ Example:
 
 </ResponseField>
 
-
-    <ResponseField name="remaining" type="int">
+<ResponseField name="remaining" type="int">
     Shows how many more times this key may be verified before being invalidated.
     Only applies to keys where you have set a `remaining` count.
     </ResponseField>
