@@ -3,14 +3,15 @@ title: 'Quickstart'
 description: 'Get started with Unkey.dev'
 ---
 
-## 1. Create your Unkey account
+## 1\. Create your Unkey account
 
 The first step to using Unkey is to create an account. You can do this by visiting [unkey.dev](https://unkey.dev/app) or by clicking the Dashboard button in the top right of your screen.
+
 <Frame caption="Create your account">
   <img src="./images/sign-up.png" alt="Sign Up Page for Unkey"/>
 </Frame>
 
-## 2. Create your first workspace
+## 2\. Create your first workspace
 
 As soon as you create your account you will be asked to create your workspace. Give it a name, and a slug. Currently the name and slug cannot be changed, so choose wisely!
 
@@ -18,7 +19,7 @@ As soon as you create your account you will be asked to create your workspace. G
   <img src="./images/create-workspace.png" alt="Create your team"/>
 </Frame>
 
-## 3. Create a root API Key
+## 3\. Create a root API Key
 
 A root API Key is a special API Key that allows you full read and write access to all current and future resources. It's important to keep this API Key safe, as it allows you to create, revoke, validate and delete API Keys.
 
@@ -26,11 +27,11 @@ Select "Keys" from the sidebar and click the "Create New Key" button.
 
 <Frame caption="Create your root API Key">
   <img src="./images/create-root-key.png" alt="Create your root API Key"/>
-  </Frame>
+</Frame>
 
 Check out the [API Reference](/api-reference/authentication) for more information on how to use your root API Key.
 
-## 3. Create your first API
+## 3\. Create your first API
 
 Now you are ready to create your first API. Select APIs from the left hand menu and click the Create API button.
 
@@ -40,7 +41,7 @@ Now you are ready to create your first API. Select APIs from the left hand menu 
 
 Give it a name, don't worry the name isn't visible to your users, it's just for you to keep track of your APIs.
 
-## 4. Create your first API Key
+## 4\. Create your first API Key
 
 Now that you have your API created, you can create your first API Key. Select Create Keys from the top right of the screen. You can create as many keys as you like, but for now we'll just create one.
 
@@ -54,7 +55,7 @@ Finally the last required field is Owner, this is an id of your tenant or user i
   <img src="./images/create-api-key.png" alt="Create your API Key"/>
 </Frame>
 
-## 5. Verify your API Key
+## 5\. Verify your API Key
 
 Now you have a working API key for your users to use. You can verify your API Key by using the following cURL command:
 
@@ -75,11 +76,12 @@ You should get a response that looks like this:
 	"ownerId": "unkey-james",
 }
 ```
+
 Using the response you can now identify the owner of the API Key, and also validate that the API Key is valid.
 
 <Check>Congratulations, you have Unkey'd your API development</Check>
 
-## 6. Next Steps
+## 6\. Next Steps
 
 You should get to know our [API reference](/api-reference/authentication), as you can add additonal fields to your request when issuing a key.
 
