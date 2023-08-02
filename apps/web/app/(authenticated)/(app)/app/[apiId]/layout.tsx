@@ -4,12 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getTenantId } from "@/lib/auth";
-import { db, eq, schema } from "@unkey/db";
+import { db, eq, schema } from "@/lib/db";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { PropsWithChildren } from "react";
 import { DeleteApiButton } from "./delete-api-button";
-import { NavLink } from "./api-navbar";
+import { NavLink } from "@/components/dashboard/api-navbar";
 
 type Props = PropsWithChildren<{
   params: {
@@ -24,7 +24,6 @@ export default async function ApiPageLayout(props: Props) {
     where: eq(schema.apis.id, props.params.apiId),
     with: {
       workspace: true,
-      keys: true,
     },
   });
   if (!api || api.workspace.tenantId !== tenantId) {
@@ -41,11 +40,15 @@ export default async function ApiPageLayout(props: Props) {
         title={api.name}
         description={"Here is a list of your current API keys"}
         actions={[
-          <Badge key="apiId" variant="outline" className="font-mono font-medium">
+          <Badge
+            key="apiId"
+            variant="outline"
+            className="flex justify-between w-full font-mono font-medium"
+          >
             {api.id}
             <CopyButton value={api.id} className="ml-2" />
           </Badge>,
-          <Link href={`/app/${api.id}/keys/new`}>
+          <Link key="new" href={`/app/${api.id}/keys/new`}>
             <Button variant="outline">Create Key</Button>
           </Link>,
           <DeleteApiButton key="delete-api" apiId={api.id} apiName={api.name} />,

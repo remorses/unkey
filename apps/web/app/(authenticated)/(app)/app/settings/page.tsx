@@ -4,7 +4,7 @@ import { Text } from "@/components/dashboard/text";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTenantId } from "@/lib/auth";
 import { fillRange } from "@/lib/utils";
-import { db, eq, schema } from "@unkey/db";
+import { db, eq, schema } from "@/lib/db";
 import { getDailyUsage } from "@/lib/tinybird";
 import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -74,7 +74,7 @@ export default async function SettingsPage() {
         </CardHeader>
 
         <CardContent>
-          <div className="flex justify-center py-4 divide-x divide-zinc-200">
+          <div className="flex justify-center py-4 divide-x divide-stone-200">
             <div className="flex flex-col items-center gap-2 px-8">
               <Text size="xl">Current Usage</Text>
               <div className="flex items-center gap-2">
@@ -103,12 +103,6 @@ export default async function SettingsPage() {
             </div>
           </div>
         </CardContent>
-        {/* <CardFooter className="flex items-center justify-end gap-2">
-                    <BillingButton teamId={team.id} />
-                    <Link key="plans" href={`/${team.slug}/settings/plans`}>
-                        <Button variant="primary">Change your plan</Button>
-                    </Link>
-                </CardFooter> */}
       </Card>
     </div>
   );

@@ -19,7 +19,7 @@ export const env = z
     UPSTASH_REDIS_REST_TOKEN: z.string().optional(),
 
     TINYBIRD_TOKEN: z.string(),
-   
+
     UNKEY_API_URL: z.string().url().default("https://api.unkey.dev"),
     UNKEY_APP_AUTH_TOKEN: z.string(),
 
@@ -40,10 +40,3 @@ const stripeSchema = z.object({
 
 const stripeParsed = stripeSchema.safeParse(process.env);
 export const stripeEnv = stripeParsed.success ? stripeParsed.data : null;
-
-const cronSchema = z.object({
-  CRON_STRIPE_AUTH_KEY: z.string(),
-});
-
-const cronParsed = cronSchema.safeParse(process.env);
-export const cronEnv = cronParsed.success ? cronParsed.data : null;

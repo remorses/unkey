@@ -15,6 +15,7 @@ interface Page {
   url: string;
 }
 
+// rome-ignore lint/suspicious/noExplicitAny: it's tailwindui's code
 function ArrowIcon(props: any) {
   return (
     <svg viewBox="0 0 24 6" aria-hidden="true" {...props}>
@@ -29,7 +30,7 @@ function PageLink({ page }: { page: Page }) {
       <Border position="left" className="relative flex flex-col items-start pl-8">
         <h3 className="mt-6 text-base font-semibold text-neutral-950">{page.title}</h3>
         <time dateTime={page.date} className="order-first text-sm text-neutral-600">
-          {formatDate(page.date)}
+          {new Date(page.date).toDateString()}
         </time>
         <p className="mt-2.5 text-base text-neutral-600">{page.description}</p>
         <Link

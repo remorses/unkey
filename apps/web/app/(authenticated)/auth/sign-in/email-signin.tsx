@@ -13,17 +13,19 @@ export function EmailSignIn(props: { verification: (value: boolean) => void }) {
   const { signIn, isLoaded: signInLoaded, setActive } = useSignIn();
   const { toast } = useToast();
   const param = "__clerk_ticket";
-  const ticket = new URL(window.location.href).searchParams.get(param);
+
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
   React.useEffect(() => {
     const signUpOrgUser = async () => {
-      if (!ticket) {
-        return;
-      }
+      const ticket = new URL(window.location.href).searchParams.get(param);
       if (!signInLoaded) {
         return;
       }
+      if (!ticket) {
+        return;
+      }
+      setIsLoading(true);
       await signIn
         .create({
           strategy: "ticket",
@@ -38,11 +40,11 @@ export function EmailSignIn(props: { verification: (value: boolean) => void }) {
         })
         .catch((err) => {
           setIsLoading(false);
-          console.log(err);
+          console.error(err);
         });
     };
     signUpOrgUser();
-  }, [ticket, signInLoaded]);
+  }, [signInLoaded]);
 
   const signInWithCode = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -102,7 +104,7 @@ export function EmailSignIn(props: { verification: (value: boolean) => void }) {
         />
       </div>
       <Button disabled={isLoading}>
-        {isLoading && <Loading className="mr-2 h-4 w-4 animate-spin" />}
+        {isLoading && <Loading className="w-4 h-4 mr-2 animate-spin" />}
         Sign In with Email
       </Button>
     </form>

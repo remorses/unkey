@@ -97,7 +97,6 @@ export const CreateKey: React.FC<Props> = ({ apiId }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("meta:", values.meta);
     if (!values.rateLimitEnabled || values.ratelimit === undefined) {
       // delete the value to stop the server from validating it
       // as it's not required
@@ -151,7 +150,7 @@ export const CreateKey: React.FC<Props> = ({ apiId }) => {
             </Code>
           </div>
 
-          <p className="my-2 font-medium text-center text-zinc-700 ">Try verifying it:</p>
+          <p className="my-2 font-medium text-center text-stone-700 ">Try verifying it:</p>
           <Code className="flex items-start justify-between w-full gap-4 my-8 ">
             {showKeyInSnippet ? snippet : snippet.replace(key.data.key, maskedKey)}
             <div className="flex items-start justify-between gap-4">
@@ -223,7 +222,7 @@ export const CreateKey: React.FC<Props> = ({ apiId }) => {
                     )}
                   />
 
-                  <div className="flex justify-around my-4 space-x-4">
+                  <div className="grid md:grid-cols-3 grid-cols-1 gap-4 my-4">
                     <FormField
                       control={form.control}
                       name="expiresEnabled"
