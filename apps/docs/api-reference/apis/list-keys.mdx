@@ -12,11 +12,9 @@ authMethod: "bearer"
 The ID of the api you want to retrieve.
 </ParamField>
 
-
 <ParamField query="limit" type="int" default="100">
 Limit the number of returned keys, the maximum is 100.
 </ParamField>
-
 
 <ParamField query="offset" type="int" default="0">
 Specify an offset for pagination.
@@ -25,18 +23,13 @@ Example:
 - An offset of `4` will skip the first 4 keys and return keys starting at the 5th position.
 </ParamField>
 
-
 <ParamField query="ownerId" type="string">
 Filter by `ownerId`.
 
 If provided, this will only return keys where the `ownerId` matches.
 </ParamField>
 
-
-
-
 ## Response
-
 
 <ResponseField name="keys" type="Array" required>
 
@@ -138,8 +131,7 @@ The ratelimit of this key, if configured.
 
 </ResponseField>
 
-
- <ResponseField name="total" type="int" required>
+<ResponseField name="total" type="int" required>
   How many keys in total there are in this API.
   Useful to paginate through this endpoint.
   </ResponseField>
