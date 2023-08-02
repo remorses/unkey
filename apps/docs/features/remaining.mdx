@@ -5,14 +5,10 @@ description: 'Limiting the usage of keys'
 
 Sometimes you would like to create an api key and automatically invalidate it after a certain number of uses.
 
-Example: 
+Example:
 You are selling API access and a customer has purchased 1000 api requests from you.
 
 Unkey allows you to set/update usage limits on individual keys and we take care of invalidating a key after it has reached its limit.
-
-
-
-
 
 ### Example
 
@@ -31,7 +27,6 @@ curl --request POST \
 
 Now when you verify the new key, you will receive back the remaining verifications and after all of them are used up, the key is invalid.
 
-
 ```bash
 curl --request POST \
   --url https://api.unkey.dev/v1/keys/verify \
@@ -48,9 +43,7 @@ curl --request POST \
 }
 ```
 
-
 <Note>
 The returned `remaining` value represents how many verifications are remaining after the current one.
 A value of 3, means you can verify the key successfully 3 more times.
 </Note>
-
